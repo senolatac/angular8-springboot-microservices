@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card card-container">
+        <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card"/>
+        <form name="form-signin" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{errorMessage}}
+            </div>
+            <div class="form-group" [ngClass]="{'has-error': f.submitted && !username.valid}">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control" id="username" [(ngModel)]="user.username" #username="ngModel" required/>
+                <div class="alert alert-danger" *ngIf="f.submitted && !username.valid">
+                    Username is required.
+                </div>
+            </div>
+            <div class="form-group" [ngClass]="{'has-error': f.submitted && !password.valid}">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" [(ngModel)]="user.password" #password="ngModel" required/>
+                    <div class="alert alert-danger" *ngIf="f.submitted && !password.valid">
+                        Password is required.
+                    </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        </form>
+        <a href="/register" class="btn btn-link">Create New Account!</a>
+    </div>
+</div>

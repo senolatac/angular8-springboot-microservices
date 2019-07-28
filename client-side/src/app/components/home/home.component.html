@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="alert alert-danger" *ngIf="errorMessage">
+        <strong>Error!</strong> {{errorMessage}}
+    </div>
+    <div class="alert alert-success" *ngIf="infoMessage">
+        <strong>Successful!</strong> {{infoMessage}}
+    </div>
+    <div class="course-container">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col col-xs-6">
+                        <h3 class="panel-title">All Courses</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Publish Date</th>
+                            <th scope="col">Enroll</th>
+                            <th scope="col">Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of courseList; index as ind">
+                            <th scope="row">{{ind + 1}}</th>
+                            <td>{{item.title}}</td>
+                            <td>{{item.author}}</td>
+                            <td>{{item.category}}</td>
+                            <td>{{item.publishDate | date:"MMM d, y"}}</td>
+                            <td>
+                                <button class="btn btn-info" (click)="enroll(item)">Enroll</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-success" (click)="detail(item)">Detail</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

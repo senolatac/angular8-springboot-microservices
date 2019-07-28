@@ -1,0 +1,35 @@
+<div class="container">
+    <header class="jumbotron">
+        <h1 class="display-3">
+            Welcome to <strong>{{currentCourse.title}}</strong>
+        </h1>
+    </header>
+    <div class="table-container">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col col-xs-6">
+                        <h3 class="panel-title">All Enrolled Students</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Student Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of studentList; index as ind">
+                            <th scope="row">{{ind + 1}}</th>
+                            <td>{{item}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <header class="jumbotron">
+        <h1 class="display-3">
+            <strong>{{currentUser.name}}</strong>, Welcome to my app.
+        </h1>
+    </header>
+    <a class="btn btn-link log-out" (click)="logOut()">LogOut</a>
+    <div class="transaction-container">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col col-xs-6">
+                        <h3 class="panel-title">All Enrolled Courses</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Course Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Enrollment Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of transactionList; let i=index">
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{item.course.title}}</td>
+                            <td>{{item.course.author}}</td>
+                            <td>{{item.dateOfIssue | date:"MMM d, y, h:mm:ss a"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
